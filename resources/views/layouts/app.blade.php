@@ -80,10 +80,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <a href="{{route('admin.users.index')}}" class="dropdown-item">
-                                        <i class="fa-solid fa-user-gear"></i>Admin
-                                    </a>
-                                    <hr class="dropdown-divider">
+                                    @if (Auth::user()->role_id == 1)
+                                        <a href="{{route('admin.users.index')}}" class="dropdown-item">
+                                            <i class="fa-solid fa-user-gear"></i>Admin
+                                        </a>
+                                        <hr class="dropdown-divider">
+                                    @endif
 
                                     <a href="{{route('profile.show',Auth::id())}}" class="dropdown-item">
                                         <i class="fa-solid fa-user text-dark"></i> Profile
